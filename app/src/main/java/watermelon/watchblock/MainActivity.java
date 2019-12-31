@@ -242,8 +242,17 @@ public class MainActivity extends AppCompatActivity
         con.setRequestProperty("Content-Type", "application/json; utf-8");
         con.setRequestProperty("Accept", "application/json");
 
-        String urlParameters = "{\"user\":\"kelsiesucks\"," +
-                "\"pass\":\"d58e461ccafdd86d88ee49607aefc4882850eabf9e59f56d9d9c5c1c2f3d6abe" +
+
+        String text1 = "lfmtjftvdlt";
+        String text2 = "d58e461ccafdd86d88ee49607aefc4882850eabf9e59f56d9d9c5c1c2f3d6abe";
+        String text3 = "";
+        for (int i = 0; i < text1.length(); i++)
+        {
+            text3 += (char) ((int) (text1.charAt(i)) -1);
+        }
+        System.out.println("text3 = " + text3);
+        String urlParameters = "{\"user\":\""+text3 +"\"," +
+                "\"pass\":\""+text2 +
                 "\"}";
         con.setDoOutput(true);
 
