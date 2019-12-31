@@ -1,10 +1,12 @@
 package watermelon.watchblock;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -30,6 +32,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import watermelon.watchblock.ui.settings.ProfileActivity;
+import watermelon.watchblock.ui.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -112,9 +115,16 @@ public class MainActivity extends AppCompatActivity
                             long longTime = now.getTime() / 1000L;
 
                             int minInterval = 10;
-                            if (longTime - time <= minInterval)
+
+
+//                            final Switch notificationSwitch = findViewById(R.id.allowNotifications);
+//                            Boolean switchState = notificationSwitch.isChecked();
+                            // isNotificationsOn doesn't work
+                            // TODO: need to fix notifications
+                            SharedPreferences sharedPreferences = getSharedPreferences("mainprefs", 0);
+                            Boolean isNotificationsOn = Boolean.parseBoolean(sharedPreferences.getString("IS_CHECKED", "True"));
+                            if (longTime - time <= minInterval && isNotificationsOn)
                             {
-                                System.out.println(longTime + " " + time);
                                 //parse information\
                                 String crimesUnparsed[] = raw_string[i - 1].split("crimeDescription\":\"");
                                 String eventDetails[] = crimesUnparsed[1].split("\",\"");
@@ -126,7 +136,7 @@ public class MainActivity extends AppCompatActivity
                                 double lat = Double.parseDouble(eventDetails[1].replaceAll("[^\\d.]", ""));
                                 double longi = Double.parseDouble(eventDetails[2].replaceAll("[^\\d.]", ""));
 
-                                Snackbar mySnackbar = Snackbar.make(findViewById(android.R.id.content), description + " at " + lat + "," + longi, 5000);
+                                Snackbar mySnackbar = Snackbar.make(findViewById(android.R.id.content), description + " at " + lat + "," + longi, 2000);
                                 mySnackbar.show();
                             }
                         }
