@@ -1,13 +1,19 @@
 package watermelon.watchblock.ui.crimemap;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -19,35 +25,25 @@ import javax.net.ssl.HttpsURLConnection;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 import watermelon.watchblock.R;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import static watermelon.watchblock.MainActivity.uuid;
 
 public class DashboardFragment extends Fragment implements OnMapReadyCallback
 {
 
-    private DashboardViewModel dashboardViewModel;
-    String update;
+    private String update;
     private GoogleMap mMap;
-    String time = "12:00";
-    String description = "Execution of Juniper";
-    LatLng location = new LatLng(35.1032075, -106.6011941);
-    String[] crimesUnparsed;
-    String[][] crimesParsed;
-    String[] descriptions;
-    String[] lats;
-    String[] longs;
-    String[] times;
-    SharedPreferences sharedPreferences;
+    private String time = "12:00";
+    private String description = "Execution of Juniper";
+    private LatLng location = new LatLng(35.1032075, -106.6011941);
+    private String[] crimesUnparsed;
+    private String[][] crimesParsed;
+    private String[] descriptions;
+    private String[] lats;
+    private String[] longs;
+    private String[] times;
+    private SharedPreferences sharedPreferences;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
@@ -55,15 +51,12 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);  //use SuppoprtMapFragment for using in fragment instead of activity  MapFragment = activity   SupportMapFragment = fragment
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
-
                 try
                 {
                     update();
@@ -79,13 +72,11 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback
                 mMap.clear(); //clear old markers
 
                 CameraPosition googlePlex = CameraPosition.builder()
-                        .target(new LatLng(35.1032075,-106.6011941))
-                        .zoom(10)
+                        .target(new LatLng(35.083565,-106.620024))
+                        .zoom(15)
                         .bearing(0)
                         .tilt(45)
                         .build();
-//
-
 
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
 
@@ -116,16 +107,9 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback
                                 .position(new LatLng(Double.parseDouble(lats[i]), Double.parseDouble(longs[i])))
                                 .title(descriptions[i] + " on " + getDataFromUNIX(Long.parseLong(times[i])).toString()));
                     }
-
-
-
-
                 }
-
             }
         });
-
-
 
         return root;
     }
@@ -146,9 +130,7 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback
         times = new String[crimesUnparsed.length-1];
 
         for (int s = 1; s < crimesUnparsed.length; s++){
-            //descriptions[s-1] = crimesUnparsed[s].split("\",\"", 1);
             crimesParsed[s-1]= crimesUnparsed[s].split("\",\"", 4);
-
         }
         for (int i = 0; i < crimesUnparsed.length-1; i++){
             descriptions[i] = crimesParsed[i][0];
@@ -156,18 +138,6 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback
             longs[i] = crimesParsed[i][2].substring(7);
             times[i] = crimesParsed[i][3].substring(6,16);
         }
-//        for (int i = 0; i < descriptions.length; i++){
-//            System.out.println("crime: ");
-//            System.out.println("Description: " + descriptions[i]);
-//            System.out.println("Lats: " + lats[i]);
-//            System.out.println("Longs: " + longs[i]);
-//            System.out.println("Time: " + times[i]);
-//
-//            mMap.addMarker(new MarkerOptions()
-//                    .position(new LatLng(Double.parseDouble(lats[i]), Double.parseDouble(longs[i])))
-//                    .title(descriptions[i] + " at " + getDataFromUNIX(Long.parseLong(times[i])).toString()));
-//
-//        }
     }
 
     public Date getDataFromUNIX(long unixTimeStamp) {

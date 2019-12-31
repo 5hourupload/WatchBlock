@@ -34,7 +34,6 @@ import watermelon.watchblock.ui.settings.ProfileActivity;
 public class MainActivity extends AppCompatActivity
 {
 
-    static String title;
     public static String uuid;
     public static String coinId;
     public static String myPub;
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity
         } catch (NullPointerException e)
         {
         }
-
 
         setContentView(R.layout.activity_main);
 
@@ -128,10 +126,6 @@ public class MainActivity extends AppCompatActivity
                                 double lat = Double.parseDouble(eventDetails[1].replaceAll("[^\\d.]", ""));
                                 double longi = Double.parseDouble(eventDetails[2].replaceAll("[^\\d.]", ""));
 
-
-                                //submit a notification
-                                //System.out.println(distance(35.081, -106.627, lat, longi));
-
                                 Snackbar mySnackbar = Snackbar.make(findViewById(android.R.id.content), description + " at " + lat + "," + longi, 5000);
                                 mySnackbar.show();
                             }
@@ -143,47 +137,6 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }).start();
-    }
-
-    private static double distance(double currentLat, double currentLong, double crimeLat, double crimeLong)
-    {
-        if ((currentLat == crimeLat) && (currentLong == crimeLong))
-        {
-            return 0;
-        } else
-        {
-            double theta = currentLong - crimeLong;
-            double dist = Math.sin(Math.toRadians(currentLat)) * Math.sin(Math.toRadians(crimeLat)) + Math.cos(Math.toRadians(currentLat)) * Math.cos(Math.toRadians(crimeLat)) * Math.cos(Math.toRadians(theta));
-            dist = Math.acos(dist);
-            dist = Math.toDegrees(dist);
-            dist = dist * 60 * 1.1515;
-            return (dist);
-        }
-    }
-
-    public Date getDataFromUNIX(long unixTimeStamp)
-    {
-        return new Date(unixTimeStamp * 1000L);
-    }
-
-    private boolean inDistanceRange(double distance, int range)
-    {
-        return range - distance > 0;
-    }
-
-
-    private int timeInterval(long currentTime, long crimeTime)
-    {
-        long diff = crimeTime - currentTime;
-        Date timeDiff = getDataFromUNIX(diff);
-        int minutes = timeDiff.getMinutes();
-
-        return minutes;
-    }
-
-    private boolean inTimeRange(int timeInterval, int range)
-    {
-        return range - timeInterval > 0;
     }
 
     private void update() throws Exception
