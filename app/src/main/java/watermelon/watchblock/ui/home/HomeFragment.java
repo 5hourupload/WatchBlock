@@ -2,10 +2,12 @@ package watermelon.watchblock.ui.home;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
@@ -116,13 +118,11 @@ public class HomeFragment extends Fragment
                     boolean success = createAsset(description.getText().toString(),Double.toString(latti),Double.toString(longi),longTime);
                     if (success)
                     {
-                        Snackbar mySnackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Crime reported.", 2000);
+                        Snackbar mySnackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Crime reported.", duration);
                         mySnackbar.show();
-                        WebView webView = new WebView(getActivity().getApplicationContext());
-                        webView.getSettings().setJavaScriptEnabled(true);
                         description.setText("");
-                        webView.loadUrl("https://www.cabq.gov/police/file-a-police-report-online");
-                        getActivity().setContentView(webView);
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.cabq.gov/police/file-a-police-report-online"));
+                        startActivity(browserIntent);
                     }
                     else
                     {
