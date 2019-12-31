@@ -75,7 +75,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Alan Shen** - *Initial work* - [5hourupload](https://github.com/5hourupload)
-* **John Ng** - *Initial work* - [Xeather](https://github.com/Xeather
+* **John Ng** - *Initial work* - [Xeather](https://github.com/Xeather)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
