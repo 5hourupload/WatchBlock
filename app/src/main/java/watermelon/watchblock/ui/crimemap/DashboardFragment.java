@@ -98,10 +98,16 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback
                     sharedPreferences = getActivity().getSharedPreferences("mainprefs", 0);
                     int range = Integer.parseInt(sharedPreferences.getString("10", "10"));
                     int slideTime = Integer.parseInt(sharedPreferences.getString("30", "30"));
+                    System.out.println("slideTime");
                     System.out.println("Time comparison:");
                     System.out.println("Current Time: " + System.currentTimeMillis() / 1000L);
                     System.out.println("Crime Time: " + Long.parseLong(times[i]));
                     int timeInt = timeInterval(System.currentTimeMillis() / 1000L, Long.parseLong(times[i]));
+
+
+                    System.out.println("ERROR TEST CASE");
+                    System.out.println(inDistanceRange(dist, range) + " " + dist + " " + range);
+                    System.out.println(inTimeRange(timeInt, slideTime) + " " + timeInt + " " + slideTime);
                     if(inDistanceRange(dist, range) && inTimeRange(timeInt, slideTime)){
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(Double.parseDouble(lats[i]), Double.parseDouble(longs[i])))
@@ -210,10 +216,8 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback
 
 
     private int timeInterval(long currentTime, long crimeTime) {
-        long diff = crimeTime - currentTime;
-        Date timeDiff = getDataFromUNIX(diff);
-        int minutes = timeDiff.getMinutes();
-
+        long diff = currentTime - crimeTime;
+        int minutes = (int) diff/60;
         return minutes;
     }
 
