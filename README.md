@@ -5,34 +5,23 @@ WatchBlock is Watermelon's take on personal security.  Our app allows its users 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local phone. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-This will require that your devive is running an Android operating system. 
 
 ```
 Android 28.0 or newer.
+This app uses Google Maps through Google API in order to display location markers. Your individual API key will be needed inorder to access the Google Map's project api.
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
 Install the application through the apk. Your device will start installing the app once you have downloaded and executed the apk.
 
-Say what the step will be
+Download the apk file from the Google Play Store.
 
-```
-Give the example
-```
+Run the installation executable.
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Opening the application.
 
 ## Running the tests
 
