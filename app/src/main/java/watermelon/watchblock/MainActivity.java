@@ -123,8 +123,10 @@ public class MainActivity extends AppCompatActivity
                             // TODO: need to fix notifications
                             SharedPreferences sharedPreferences = getSharedPreferences("mainprefs", 0);
                             Boolean isNotificationsOn = Boolean.parseBoolean(sharedPreferences.getString("IS_CHECKED", "True"));
-                            if (longTime - time <= minInterval && isNotificationsOn)
+                            if (Math.abs(longTime - time) <= minInterval && isNotificationsOn)
                             {
+                                System.out.println(longTime);
+                                System.out.println(time);
                                 //parse information\
                                 String crimesUnparsed[] = raw_string[i - 1].split("crimeDescription\":\"");
                                 String eventDetails[] = crimesUnparsed[1].split("\",\"");
