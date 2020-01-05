@@ -23,21 +23,16 @@ import watermelon.watchblock.R;
 
 public class SettingsFragment extends Fragment
 {
-    SharedPreferences sharedpreferences;
-    TextView crimeRadiusLabel;
-    TextView timeLabel;
-    int progressBar = 10;
+    private SharedPreferences sharedpreferences;
+    private TextView crimeRadiusLabel;
+    private TextView timeLabel;
     public static final String CRIME_RADIUS = "10";
     public static final String TIME_WINDOW = "30";
     public static final String IS_CHECKED = "notifications";
 
-    private SettingsViewModel settingsViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
     {
-        settingsViewModel =
-                ViewModelProviders.of(this).get(SettingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
 
 

@@ -29,7 +29,7 @@ import watermelon.watchblock.R;
 
 import static watermelon.watchblock.MainActivity.uuid;
 
-public class DashboardFragment extends Fragment implements OnMapReadyCallback
+public class CrimeMapFragment extends Fragment implements OnMapReadyCallback
 {
 
     private String update;

@@ -1,4 +1,4 @@
-package watermelon.watchblock.ui.home;
+package watermelon.watchblock.ui.report;
 
 import android.Manifest;
 import android.content.Context;
@@ -13,7 +13,6 @@ import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -36,7 +35,7 @@ import watermelon.watchblock.R;
 import static watermelon.watchblock.MainActivity.coinId;
 import static watermelon.watchblock.MainActivity.uuid;
 
-public class HomeFragment extends Fragment
+public class ReportFragment extends Fragment
 {
 
     double latti;

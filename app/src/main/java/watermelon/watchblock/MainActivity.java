@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
                                 String eventDetails[] = crimesUnparsed[1].split("\",\"");
                                 for (String s : eventDetails)
                                 {
-                                    System.out.println("help: " + s);
+//                                    System.out.println("help: " + s);
                                 }
                                 String description = eventDetails[0];
                                 double lat = Double.parseDouble(eventDetails[1].replaceAll("[^\\d.]", ""));
@@ -260,7 +260,6 @@ public class MainActivity extends AppCompatActivity
         {
             text3 += (char) ((int) (text1.charAt(i)) -1);
         }
-        System.out.println("text3 = " + text3);
         String urlParameters = "{\"user\":\""+text3 +"\"," +
                 "\"pass\":\""+text2 +
                 "\"}";
@@ -288,8 +287,6 @@ public class MainActivity extends AppCompatActivity
             String strResp = response.toString();
             uuid = strResp.substring(strResp.indexOf("uuid") + 7, strResp.length() - 2);
             myPub = strResp.substring(strResp.indexOf("pub") + 6, strResp.indexOf("testnet") - 2);
-            System.out.println(uuid);
-            System.out.println(myPub);
 
         }
 
