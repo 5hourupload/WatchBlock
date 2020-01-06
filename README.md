@@ -1,12 +1,15 @@
 # WatchBlock
 
-WatchBlock is Watermelon's take on personal security.  Our app allows its users to feel safe by providing them with information on criminal activity around their area.  WatchBlock is your neighborhood watch app away from your neighborhood.  Using blockchain technology provided by Devvio, WatchBlock stores crime data on the blockchain so that it is immutable, and safe for everyone to access.  WatchBlock will send its users live notifications for new crime reports based on their current location.  Users can set a crime radius which specifies an area within their location they want to receive crime updates for.  They can also set a crime time window, which allows users to specify how recent the crimes must be in order to receive a notification about them.  It has never been so easy to feel safe in your environment.
+### Description:
+
+WatchBlock is our take on personal security.  Our app allows its users to feel safe by providing them with information on criminal activity around their area.  WatchBlock is your neighborhood watch app away from your neighborhood.  Using blockchain technology provided by Devvio, WatchBlock stores crime data on the blockchain so that it is immutable, and safe for everyone to access.  WatchBlock will send its users live notifications for new crime reports based on their current location.  Users can set a crime radius which specifies an area within their location they want to receive crime updates for. They can also set a crime time window, which allows users to specify how recent the crimes must be in order to receive a notification about them. 
+
+Users are directed to the official Albuquerque police reporting website to notify the polic after reporting a crime. All reported crimes are immediately sent to everyone with the app, so any crime notifications users receive will be current and relevant to there safety. Other crime watch apps do not have this advantage as all crime reports must go through the olice first. It has never been so easy to feel safe in your environment.
 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local phone. See deployment for notes on how to deploy the project on a live system.
-
+These instructions will get you a copy of the project up and running on your Android phone.
 
 ```
 Android 28.0 or newer.
@@ -15,62 +18,38 @@ This app uses Google Maps through Google API in order to display location marker
 
 ### Installing
 
-Install the application through the apk. Your device will start installing the app once you have downloaded and executed the apk.
+Load the app-release.apk file onto your Android device.
 
-Download the apk file from the Google Play Store.
+Open the file. You will have to accept installing apps from unknown sources. 
 
-Run the installation executable.
-
-Opening the application.
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Devvio](https://devv.io/) - The blockchain framework used
+* [Gradle](https://gradle.org/) - Dependency Management
+ 
 
 ## Authors
 
 * **Alan Shen** - *Initial work* - [5hourupload](https://github.com/5hourupload)
+Alan Shen is a junior at UNM studying Computer Science. He is currently interning at Sandia National Laboratories. Alan enjoys riding electric boards in his free time. He hopes to pursue a masters degree in computer science.
+
 * **John Ng** - *Initial work* - [Xeather](https://github.com/Xeather)
+John Ng is a junior at UNM studying Computer Science. He is currently interning at Sandia National Laboratories. He enjoys playing tennis in his free time. He hopes to someday work at Google, working on drones.
+
+* **Mario Morford-Oberst** - *Initial work* - [morfordoberst](https://github.com/morfordoberst)
+Mario Morford-Oberst is a junior at UNM studying Computer Science. He is currently interning at Sandia National Laboratories. Mario enjoys modifying cars in his free time. He hopes to do research in quantum computing in the future.
+
+* **Kelsie Box** - *Initial work* - [kelsiebox](https://github.com/kelsiebox)
+Kelsie Box is a senior at UNM studying Computer Science.
+
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+## Contact information:
+
+For questions, please contact alshen@unm.edu
 
 ## Acknowledgments
 
