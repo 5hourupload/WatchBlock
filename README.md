@@ -1,5 +1,7 @@
 # WatchBlock
 
+https://github.com/5hourupload/WatchBlock
+
 ### Description:
 
 WatchBlock is our take on personal security.  Our app allows its users to feel safe by providing them with information on criminal activity around their area.  WatchBlock is your neighborhood watch app away from your neighborhood.  Using blockchain technology provided by Devvio, WatchBlock stores crime data on the blockchain so that it is immutable, and safe for everyone to access.  WatchBlock will send its users live notifications for new crime reports based on their current location.  Users can set a crime radius which specifies an area within their location they want to receive crime updates for. They can also set a crime time window, which allows users to specify how recent the crimes must be in order to receive a notification about them. 
@@ -13,7 +15,7 @@ These instructions will get you a copy of the project up and running on your And
 
 ```
 Android 28.0 or newer.
-This app uses Google Maps through Google API in order to display location markers. Your individual API key will be needed inorder to access the Google Map's project api.
+This app uses Google Maps through Google API in order to display location markers.
 ```
 
 ### Installing
@@ -31,16 +33,16 @@ Open the file. You will have to accept installing apps from unknown sources.
 
 ## Authors
 
-* **Alan Shen** - *Initial work* - [5hourupload](https://github.com/5hourupload)
+* **Alan Shen** - [5hourupload](https://github.com/5hourupload)
 Alan Shen is a junior at UNM studying Computer Science. He is currently interning at Sandia National Laboratories. Alan enjoys riding electric boards in his free time. He hopes to pursue a masters degree in computer science.
 
-* **John Ng** - *Initial work* - [Xeather](https://github.com/Xeather)
+* **John Ng** - [Xeather](https://github.com/Xeather)
 John Ng is a junior at UNM studying Computer Science. He is currently interning at Sandia National Laboratories. He enjoys playing tennis in his free time. He hopes to someday work at Google, working on drones.
 
-* **Mario Morford-Oberst** - *Initial work* - [morfordoberst](https://github.com/morfordoberst)
+* **Mario Morford-Oberst** - [morfordoberst](https://github.com/morfordoberst)
 Mario Morford-Oberst is a junior at UNM studying Computer Science. He is currently interning at Sandia National Laboratories. Mario enjoys modifying cars in his free time. He hopes to do research in quantum computing in the future.
 
-* **Kelsie Box** - *Initial work* - [kelsiebox](https://github.com/kelsiebox)
+* **Kelsie Box** - [kelsiebox](https://github.com/kelsiebox)
 Kelsie Box is a senior at UNM studying Computer Science.
 
 
