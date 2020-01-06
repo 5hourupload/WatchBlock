@@ -44,7 +44,7 @@ Mario Morford-Oberst is a junior at UNM studying Computer Science. He is current
 Kelsie Box is a senior at UNM studying Computer Science.
 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/5hourupload/WatchBlock/graphs/contributors) who participated in this project.
 
 
 ## Contact information:
