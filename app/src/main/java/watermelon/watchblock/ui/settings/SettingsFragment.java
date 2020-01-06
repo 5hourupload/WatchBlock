@@ -93,8 +93,8 @@ public class SettingsFragment extends Fragment
         timeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                String newText = "Crime Radius: " + sharedpreferences
-                        .getString(CRIME_RADIUS, "") + " miles";
+                String newText = "Crime Time Window: " + sharedpreferences
+                        .getString(TIME_WINDOW, "") + " minutes";
                 timeLabel.setText(newText);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString(TIME_WINDOW, String.valueOf(seekBar.getProgress()));
