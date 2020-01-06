@@ -38,8 +38,8 @@ import static watermelon.watchblock.MainActivity.uuid;
 public class ReportFragment extends Fragment
 {
 
-    double latti;
-    double longi;
+    private double latti;
+    private double longi;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)

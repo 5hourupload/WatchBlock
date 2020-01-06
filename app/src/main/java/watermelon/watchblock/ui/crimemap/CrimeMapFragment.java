@@ -29,6 +29,9 @@ import watermelon.watchblock.R;
 
 import static watermelon.watchblock.MainActivity.uuid;
 
+/**
+ * set up crime map 
+ */
 public class CrimeMapFragment extends Fragment implements OnMapReadyCallback
 {
 

@@ -21,51 +21,64 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import watermelon.watchblock.R;
 
+/**
+ * set settings page
+ */
 public class SettingsFragment extends Fragment
 {
     private SharedPreferences sharedpreferences;
     private TextView crimeRadiusLabel;
     private TextView timeLabel;
-    public static final String CRIME_RADIUS = "10";
-    public static final String TIME_WINDOW = "30";
-    public static final String IS_CHECKED = "notifications";
+    private static final String CRIME_RADIUS = "10";
+    private static final String TIME_WINDOW = "30";
+    private static final String IS_CHECKED = "notifications";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
     {
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
 
-
-
+        //set crime radius seekbar label
         SeekBar seekBar = root.findViewById(R.id.distanceSeekBar);
         crimeRadiusLabel = root.findViewById(R.id.crimeRadiusLabel);
-        crimeRadiusLabel.setText("Crime Radius: " + seekBar.getProgress() + " miles");
+        String newText = "Crime Radius: " + seekBar.getProgress() + " miles";
+        crimeRadiusLabel.setText(newText);
 
+        //set crime time seekbar label
         SeekBar timeBar = root.findViewById(R.id.timeSeekBar);
         timeLabel = root.findViewById(R.id.timeWindow);
-        timeLabel.setText("Crime Time Window: " + timeBar.getProgress() + " minutes");
+        newText = "Crime Time Window: " + timeBar.getProgress() + " minutes";
+        timeLabel.setText(newText);
 
+        //set notification switch
         final Switch notificationSwitch = root.findViewById(R.id.allowNotifications);
 
+        sharedpreferences = this.getActivity()
+                .getSharedPreferences("mainprefs", Context.MODE_PRIVATE);
 
-        sharedpreferences = this.getActivity().getSharedPreferences("mainprefs", Context.MODE_PRIVATE);
-
+        //update crime time seekbar label
         if (sharedpreferences.contains(TIME_WINDOW)) {
-            timeLabel.setText("Crime Time Window: " + sharedpreferences.getString(TIME_WINDOW, "") + " minutes");
-            timeBar.setProgress(Integer.parseInt(sharedpreferences.getString(TIME_WINDOW, "")));
+            newText = "Crime Time Window: " + sharedpreferences
+                    .getString(TIME_WINDOW, "") + " minutes";
+            timeLabel.setText(newText);
+            timeBar.setProgress(Integer.parseInt(sharedpreferences
+                    .getString(TIME_WINDOW, "")));
         }
 
 
+        //update crime radius seekbar
         if (sharedpreferences.contains(CRIME_RADIUS)) {
-            crimeRadiusLabel.setText("Crime Radius: " + sharedpreferences.getString(CRIME_RADIUS, "") + " miles");
-            seekBar.setProgress(Integer.parseInt(sharedpreferences.getString(CRIME_RADIUS, "")));
+            newText = "Crime Radius: " + sharedpreferences
+                    .getString(CRIME_RADIUS, "") + " miles";
+            crimeRadiusLabel.setText(newText);
+            seekBar.setProgress(Integer.parseInt(sharedpreferences
+                    .getString(CRIME_RADIUS, "")));
         }
 
+        //update notification switch
         if(sharedpreferences.contains(IS_CHECKED)) {
             notificationSwitch.setChecked(sharedpreferences.getBoolean(IS_CHECKED, false));
         }
-
-
 
         notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -73,7 +86,6 @@ public class SettingsFragment extends Fragment
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putBoolean(IS_CHECKED, isChecked);
                 editor.apply();
-                //TODO: ungrey out time window
             }
         });
 
@@ -81,24 +93,20 @@ public class SettingsFragment extends Fragment
         timeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                timeLabel.setText("Crime Time Window: " + seekBar.getProgress() + " minutes");
+                String newText = "Crime Radius: " + sharedpreferences
+                        .getString(CRIME_RADIUS, "") + " miles";
+                timeLabel.setText(newText);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString(TIME_WINDOW, String.valueOf(seekBar.getProgress()));
                 editor.apply();
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
-
-
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
@@ -111,14 +119,10 @@ public class SettingsFragment extends Fragment
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         final Button editProfile = root.findViewById(R.id.editProfile);
@@ -130,7 +134,6 @@ public class SettingsFragment extends Fragment
                 startActivity(intent);
             }
         });
-
 
         return root;
     }

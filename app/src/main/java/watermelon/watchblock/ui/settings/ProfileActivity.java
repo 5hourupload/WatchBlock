@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import watermelon.watchblock.R;
 
+/**
+ * set up profile page
+ */
 public class ProfileActivity extends AppCompatActivity
 {
 
